@@ -9,24 +9,26 @@ Installing macOS Hackintosh on ASUS-B560M-K
 
 | Component    |   Model                | Link                                                                                                                                     |
 | ------------ | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| CPU          | Intel Core I5 10400F   | [ark.intel.com/](https://ark.intel.com/content/www/ru/ru/ark/products/199278/intel-core-i510400f-processor-12m-cache-up-to-4-30-ghz.html)
+| CPU          | Intel Core I7 11700F   | [ark.intel.com/](https://ark.intel.com/content/www/ru/ru/ark/products/199278/intel-core-i510400f-processor-12m-cache-up-to-4-30-ghz.html)
 | Mainboard    | ASUS PRIME B560M-K     | [www.asus.com](https://www.asus.com/ua-ua/Motherboards-Components/Motherboards/PRIME/PRIME-B560M-K/)
-| Crucial DDR4 | Crucial DDR4 2x 8GB    | [www.crucial.com](https://www.crucial.com/memory/ddr4/ct8g4dfra32a)   
-| GPU          | PULSE RX 580 4G G5     | [www.sapphiretech.com](https://www.sapphiretech.com/ru-ru/consumer/pulse-rx-580-4g-g5)  
-| WIFI/BT      | WTXUP bcm943602cs      | [aliexpress.ru](https://aliexpress.ru/item/32763349068.html?sku_id=65150715564) 
+| Crucial DDR4 | Kingston DDR4 2x 16GB  | [www.kingston.com]([https://www.crucial.com/memory/ddr4/ct8g4dfra32a](https://www.kingston.com/ua/memory/gaming/kingston-fury-beast-ddr4-memory))   
+| GPU          | GA RX 6600 XT          | [www.sapphiretech.com](https://www.sapphiretech.com/ru-ru/consumer/pulse-rx-580-4g-g5)  
+| WIFI/BT      | Intel WIFI AC 9260     | [aliexpress.ru](https://aliexpress.ru/item/32763349068.html?sku_id=65150715564) 
 | SSD-SATA     | Transcend SSD220Q      | [www.transcend-info.com](https://www.transcend-info.com/Products/No-1163) 
+| SSD-NVMe     | Kingston KC3000        | [www.kingston.com](https://www.kingston.com/ua/ssd/kc3000-nvme-m2-solid-state-drive) 
 
 Checked on:
 
-- macOS [Ventura Beta4](https://www.apple.com/macos/macos-ventura-preview/)
+- macOS [Sonoma   14.4](https://www.apple.com/macos/sonoma/)
+- macOS [Ventura  13.6.5+](https://www.apple.com/macos/macos-ventura-preview/)
 - macOS [Monterey 12.4+](https://www.apple.com/ua/macos/monterey/)
 
 Bootloader:
 
-- Open Core 0.8.3
+- Open Core 0.9.9
 
 BIOS:
-- PRIME B560M-K [BIOS 1605](https://www.asus.com/ru/Motherboards-Components/Motherboards/PRIME/PRIME-B560M-K/HelpDesk_BIOS/)
+- PRIME B560M-K [BIOS 2001](https://www.asus.com/motherboards-components/motherboards/prime/prime-b560-plus/helpdesk_bios?model2Name=PRIME-B560-PLUS)
 
 
 ---
@@ -35,9 +37,9 @@ BIOS:
 
 | Component B560M-K      |        Started         |      Kexts/SSDT        |                                                                                                          
 | ---------------------- | ---------------------- | ---------------------- |
-| I5 10400F              |         Yes            |    SSDT1.aml           |
-| Radeon RX580           |         Yes            |    WhateverGreen.kext  |
-| BCM943602CS            |         Yes            |    Native              |
+| I7 11700F              |         Yes            |    SSDT1.aml           |
+| Radeon RX 6600 XT      |         Yes            |    Native              |
+| Intel WIFI AC 9260     |         Yes            |    AirportItlwm.kext   |
 | Sata Controller        |         Yes            |    Native              |
 | Intel I219V14 Ethernet |         Yes            |    IntelMausi.kext     |
 | Audio Realtec ALC 897  |         Yes            |    AppleALC.kext       |
@@ -52,6 +54,7 @@ Kexts and Bootloader:
 - [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases) (VirtualSMC && SMCProcessor && SMCSuperIO) Needed to emulate native Apple SMC.
 - [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases) Video Fix.
 - [RestrictEvents](https://github.com/acidanthera/RestrictEvents/releases) RAM detection fix, use with MacPro7.1.
+- [AirportItlwm](https://github.com/OpenIntelWireless/itlwm/releases) Requires Intel Wifi to work.
 - [Open Core](https://github.com/acidanthera/OpenCorePkg/releases) Operating system loader.
 
 ---
@@ -113,7 +116,8 @@ Misk->Security
 - AllowSetDefault:     true
 - ExposeSensitiveData: 14
 - ScanPolicy:          0
-- SecureBootModel:     j160
+- SecureBootModel:     j160     - (for macOS Monterey - Ventura)
+- SecureBootModel:     Disabled - (for macOS Sonoma) 
 - Vault:               Optional
 
 ---
