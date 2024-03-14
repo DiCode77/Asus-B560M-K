@@ -11,7 +11,7 @@ Installing macOS Hackintosh on ASUS-B560M-K
 | ------------ | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | CPU          | Intel Core I7 11700F   | [ark.intel.com/](https://ark.intel.com/content/www/ru/ru/ark/products/199278/intel-core-i510400f-processor-12m-cache-up-to-4-30-ghz.html)
 | Mainboard    | ASUS PRIME B560M-K     | [www.asus.com](https://www.asus.com/ua-ua/Motherboards-Components/Motherboards/PRIME/PRIME-B560M-K/)
-| Crucial DDR4 | Kingston DDR4 2x 16GB  | [www.kingston.com]([https://www.crucial.com/memory/ddr4/ct8g4dfra32a](https://www.kingston.com/ua/memory/gaming/kingston-fury-beast-ddr4-memory))   
+| Crucial DDR4 | Kingston DDR4 2x 16GB  | [www.kingston.com](https://www.kingston.com/ua/memory/gaming/kingston-fury-beast-ddr4-memory)   
 | GPU          | GA RX 6600 XT          | [www.sapphiretech.com](https://www.sapphiretech.com/ru-ru/consumer/pulse-rx-580-4g-g5)  
 | WIFI/BT      | Intel WIFI AC 9260     | [aliexpress.ru](https://aliexpress.ru/item/32763349068.html?sku_id=65150715564) 
 | SSD-SATA     | Transcend SSD220Q      | [www.transcend-info.com](https://www.transcend-info.com/Products/No-1163) 
@@ -99,6 +99,11 @@ Booter->Quirks
 - ProvideCustomSlide:     true
 - RebuildAppleMemoryMap:  true
 - SyncRuntimePermissions: true
+
+Kernel->Emulate
+
+- Cpuid1Data: EC060800 00000000 00000000 00000000
+- Cpuid1Mask: FFFFFFFF 00000000 00000000 00000000 
 
 Kernel->Quirks
 
